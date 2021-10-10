@@ -10,12 +10,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      BUCKET_NAME: <Nonproduction bucket name here>
+      BUCKET_NAME: cfst-3457-3d84e82ecf2befed990c991ed-nonprodbucket-eqvsoy6wgo4o
     steps:
       - name: Check out code
         uses: actions/checkout@v2
       - name: configure aws cli
-        uses: actions/configure-aws-credentials@v1
+        uses: actions/configure-aws-credentials
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
