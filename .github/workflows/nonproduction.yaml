@@ -18,14 +18,14 @@ on:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACESS_KEY }}
             aws-region: us-east-1
-          - name: set up node js
-            uses: actions/setup-node@v2
-            with:
-              node-version: 14
-          - name: build site
-            run: |
-              npm ci
-              npm run build
-          - name: deploy to bucket
-            run: aws s3 cp public s3://${{ env.BUCKET_NAME}}/ --recursive --acl public-read
+        - name: set up node js
+          uses: actions/setup-node@v2
+          with:
+            node-version: 14
+        - name: build site
+          run: |
+            npm ci
+            npm run build
+        - name: deploy to bucket
+          run: aws s3 cp public s3://${{ env.BUCKET_NAME}}/ --recursive --acl public-read
       
