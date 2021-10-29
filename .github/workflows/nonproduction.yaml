@@ -25,7 +25,7 @@ jobs:
           node-version: 14
       - name: build site
         run: |
-          npm cli
+          npm ci
           npm run build     
       - name: deploy code to s3
         run: aws s3 cp public s3://${{env.BUCKET_NAME}}/ --recursive --acl public-read     
