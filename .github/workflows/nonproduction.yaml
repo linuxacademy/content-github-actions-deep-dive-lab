@@ -19,7 +19,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
       - name: set up node.js
-        uses: actions/setup-nodes@v2
+        uses: actions/setup-node@v2
         with:
           node-version: 14
       - name: build site
