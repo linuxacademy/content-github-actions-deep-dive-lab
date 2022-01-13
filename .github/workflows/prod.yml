@@ -1,0 +1,33 @@
+name: None Prod CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+# jobs:
+  # deploy:
+    # name: build and deploy
+    # runs-on: ubuntu-latest
+    # env: 
+    #   BUCKET_NAME: cfst-3457-4e389ea8632fb5bcb5bd4fffa-nonprodbucket-14aynu6tay850
+    # steps:
+    # - name: configure AWS credentials
+    #   uses: aws-actions/configure-aws-credentials@v1
+    #   with:
+    #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #     aws-region: us-east-1
+    # - name: checkout code
+    #   uses: actions/checkout@v2
+    # - name: setup node js
+    #   uses: actions/setup-node@v2
+    #   with:
+    #     node-version: 14
+    # - name: install dependencies and build
+    #   run: | 
+    #     npm ci
+    #     npm run build
+    # - name: sync with s3 statis site
+    #   run: aws s3 sync public s3://${{ env.BUCKET_NAME }}
+    
