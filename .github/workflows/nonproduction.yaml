@@ -1,6 +1,3 @@
-nonproduction.yaml
-
-
 name: Deploy feature branches to nonprod
 
 on:
