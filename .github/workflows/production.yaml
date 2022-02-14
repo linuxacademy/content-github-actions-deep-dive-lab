@@ -1,5 +1,5 @@
 ---
-name: deploy feature branches to nonproduction bucket
+name: deploy feature branches to production bucket
 
 on:
   push:
