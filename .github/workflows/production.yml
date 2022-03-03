@@ -1,0 +1,29 @@
+name: deploy feature branch to production bucket
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      BUCKET_NAME: cfst-3457-9700609a298cc6eae382ac545bf1-prodbucket-18l7mtyvgrsir
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+          aws-region: us-east-1
+      - name: setup node js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: build site
+        run: |
+          npm ci
+          npm run build
+      - name: copy files to s3
+        run: aws s3 cp public s3://${{env.BUCKET_NAME}}/ --recursive --acl public-read
