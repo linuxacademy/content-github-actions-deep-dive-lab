@@ -29,4 +29,4 @@ jobs:
           npm ci
           npm run build
       - name: deploy files to bucket
-        run: aws s3 cp public s3://cfst-3457-e1622cf7bfb900f4bd41a0d40-nonprodbucket-14jkv906k0wf9 --recursive --acl public-read
+        run: aws s3 cp public s3://cfst-3457-ae86dc9974a5b9e9484d7c99c-nonprodbucket-12ngrwqmcrsea --recursive --acl public-read
