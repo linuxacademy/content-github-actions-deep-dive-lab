@@ -1,4 +1,4 @@
-name: Deploy feature branches to nonproduction bucket static site
+name: Deploy feature branches to nonproduction bucket
 
 on:
   push:
