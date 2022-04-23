@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BUCKET_NAME: cfst-3457-04a58acc2ae6e534e1e38203d-nonprodbucket-13gzqymokn1sl
-    needs: install-gatsby
     steps:
       - name: checkout code
         uses: actions/checkout@v2
