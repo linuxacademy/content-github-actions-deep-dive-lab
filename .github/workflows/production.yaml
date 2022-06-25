@@ -1,9 +1,9 @@
-name: Deploy feature branches to nonproduction bucket
+name: Deploy main branches to production bucket
 
 on:
   push:
     branches:
-      - feature*
+      - main
 
 jobs:
 
@@ -27,4 +27,4 @@ jobs:
           npm ci
           npm run build
       - name: deploy files to bucket
-        run: aws s3 cp public s3://${{ secrets.AWS_PRODUCTION_BUCKET }} --recursive --acl public-read
+        run: aws s3 cp public s3://${{ secrets.AWS_NON_PRODUCTION_BUCKET }} --recursive --acl public-read
