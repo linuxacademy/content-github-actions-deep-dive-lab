@@ -24,10 +24,10 @@ jobs:
         with:
           node-version: 18
       - name: build web site
-        run: |
-          npm ci #set the build to run in Continous Integration solution
-          npm run build #executes all build scripts and compiles the raw code to a static site (HTML, JavaScript, etc.) so that it can be stored in a S3 bucket
+        run: |  #executes all build scripts and compiles the raw code to a static site (HTML, JavaScript, etc.) so that it can be stored in a S3 bucket and use build CI
       - name: Deploy bundle to bucket
+          npm ci
+          npm run build
         run: | # this command copies the "public" folder to the bucket root. note the S3 bucket env. variable
             echo 'copying files to s3 bucket' 
             aws s3 cp public s3://${{ env.BUCKET_NAME }}/ --recursive --acl public-read
