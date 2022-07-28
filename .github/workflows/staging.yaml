@@ -22,7 +22,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3.4.1
         with:
-          node-version: 18
+          node-version: 14
       - name: build web site
         run: |  
       - name: Deploy bundle to bucket
@@ -31,4 +31,4 @@ jobs:
         run: |
             echo 'copying files to s3 bucket' 
 
-            aws s3 cp s3://${{ env.BUCKET_NAME }}/ --recursive 
+            aws s3 cp public s3://${{ env.BUCKET_NAME }}/ --recursive 
