@@ -31,4 +31,4 @@ jobs:
         run: |
             echo 'copying files to s3 bucket' 
 
-            aws s3 cp public s3://${{ env.BUCKET_NAME }}/ --recursive
+            aws s3 cp s3://${{ env.BUCKET_NAME }}/ --recursive 
