@@ -25,10 +25,9 @@ jobs:
           node-version: 14
       - name: build web site
         run: |  
-      - name: Deploy bundle to bucket
           npm ci
           npm run build
+      - name: Deploy bundle to bucket
         run: |
             echo 'copying files to s3 bucket' 
-
-            aws s3 cp public s3://${{ env.BUCKET_NAME }}/ --recursive 
+            aws s3 cp public s3://${{ env.BUCKET_NAME }}/ --recursive --acl private
