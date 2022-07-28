@@ -30,4 +30,5 @@ jobs:
           npm run build
         run: |
             echo 'copying files to s3 bucket' 
-            aws s3 cp public s3://${{ env.BUCKET_NAME }}/ --recursive --acl private
+
+            aws s3 cp public s3://${{ env.BUCKET_NAME }}/ --recursive
