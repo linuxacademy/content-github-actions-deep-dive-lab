@@ -1,0 +1,33 @@
+name: Deploy feature branches to staging
+
+on:
+  push:
+    branches:
+      - feature* # workflows will be triggered by any push from branch with the "feature" prefix
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      BUCKET_NAME: staging-bucket-gh-demo23 #setup an environment variable for the S3 bucket
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Configure AWS cli
+        uses: aws-actions/configure-aws-credentials@v1
+        with: # set the following parameters according to your own AWS account
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Use Node.js
+        uses: actions/setup-node@v3.4.1
+        with:
+          node-version: 18
+      - name: build web site
+        run: |
+          npm ci #set the build to run in Continous Integration solution
+          npm run build #executes all build scripts and compiles the raw code to a static site (HTML, JavaScript, etc.) so that it can be stored in a S3 bucket
+      - name: Deploy bundle to bucket
+        run: |
+            echo 'copying files to s3 bucket'
+            aws s3 cp public s3://${{ env.BUCKET_NAME }}/ --recursive --acl public-read # this command copies the "public" folder to the bucket root. note the S3 bucket env. variable
