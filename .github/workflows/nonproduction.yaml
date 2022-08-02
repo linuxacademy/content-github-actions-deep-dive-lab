@@ -3,7 +3,7 @@ name: Deploy site to production bucket
 on:
   push:
     branches:
-      - feature*
+      - feature-initial-page
 
 jobs:
 
