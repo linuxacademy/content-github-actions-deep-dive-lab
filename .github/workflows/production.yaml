@@ -1,16 +1,14 @@
-name: deployment feature branches to nonproduction
+name: Deploy Produduction webpage
 
 on:
   push:
-    branches: 
-      - feature*
-
-
+    branches:
+      - main
 jobs:
   build: 
     runs-on: ubuntu-latest
     env:
-      BUCKET_NAME: cfst-3457-df9ab89576e2d9057379436ff-nonprodbucket-mp7ve78jset6
+      BUCKET_NAME: cfst-3457-df9ab89576e2d9057379436ff011-prodbucket-7wkdxogxm0gr
     steps:
       - name: check out the code
         uses: actions/checkout@v2
