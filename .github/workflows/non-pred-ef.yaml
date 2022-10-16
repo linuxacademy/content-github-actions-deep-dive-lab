@@ -3,16 +3,25 @@ on:
   push:
     branches: feature*
 jobs:
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
+ Explore-GitHub-Actions:
+  runs-on: ubuntu-latest
+  env:
+    BUCKET_NAME: "cfst-3457-50435798760db14337edc7139-nonprodbucket-14twrgvonmbvr"
   steps:
-  - name: "Checkout Source Code"
-    uses: actions/checkout@v3
-  - name: Setup Nodejs
-    uses: actions/setup-node@v3
+   - name: "Checkout Source Code"
+     uses: actions/checkout@v3
+   - name: "Configure AWS Credentials"
+     uses: aws-actions/configure-aws-credentials@v1
      with:
-       node-version: ${{ matrix.node-version }}
-  - name: Run Nodejs
-    run: |
+      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}# optional
+      aws-secret-access-key:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+   - name: Setup Nodejs
+     uses: actions/setup-node@v3
+     with:
+       node-version: 14
+   - name: Run Nodejs
+     run: |
        npm ci
-       npm build 
+       npm run build
+   - name: Deploy to S3
+     run: aws s3 cp public s3://${{ env.BUCKET_NAME }} --recursive --acl public-read
