@@ -1,0 +1,18 @@
+name: github-non-prod-wf
+on:
+  push:
+    branches: feature*
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+  steps:
+  - name: "Checkout Source Code"
+    uses: actions/checkout@v3
+  - name: Setup Nodejs
+    uses: actions/setup-node@v3
+     with:
+       node-version: ${{ matrix.node-version }}
+  - name: Run Nodejs
+    run: |
+       npm ci
+       npm build 
