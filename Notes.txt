@@ -1,0 +1,6 @@
+cfst-3457-2b7b573685cf9b6ee8536fb1d-nonprodbucket-1vn003hw72fhw
+cfst-3457-2b7b573685cf9b6ee8536fb1d751-prodbucket-1pr91hy74u9t
+
+
+AccessKey - AKIATWYROVM6WYFSFXT7
+SecretKey - 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
