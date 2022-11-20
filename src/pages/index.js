@@ -8,7 +8,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <header>
-        <title>Cloud Coffee</title>
+        <title>Cloud Coffee2</title>
         <meta name="description" content="Bringing Coffee to the Cloud" />
       </header>
       
