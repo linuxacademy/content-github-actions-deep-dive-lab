@@ -1,4 +1,4 @@
-name: Deploy feature branch to dev environment
+name: Deploy to production
 
 on:
   push:
