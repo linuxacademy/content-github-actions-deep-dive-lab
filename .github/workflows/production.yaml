@@ -1,4 +1,4 @@
-name: Deploy feature branches to production bucket
+name: Deploy feature branches to the production bucket
 
 on:
   push:
