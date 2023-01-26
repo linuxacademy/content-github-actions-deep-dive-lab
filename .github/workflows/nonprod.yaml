@@ -3,14 +3,14 @@ name: Deploy feature branches to nonproduction buckett
 on:
   push:
     branches:
-      - feature*
+      - main
 
 jobs:
 
   build:
     runs-on: ubuntu-latest
     env:
-      BUCKET_NAME: test-damlox
+      BUCKET_NAME: prod-damlox
     steps:
       - name: Check out code
         uses: actions/checkout@v2
