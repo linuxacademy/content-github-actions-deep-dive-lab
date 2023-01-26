@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      BUCKET_NAME: very-gay-bucket-6969
+      BUCKET_NAME: test-damlox
     steps:
       - name: Check out code
         uses: actions/checkout@v2
