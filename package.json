@@ -14,9 +14,9 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "gatsby": "^3.6.2",
+    "gatsby": "^3.15.0",
     "gatsby-plugin-image": "^1.7.1",
-    "gatsby-plugin-sharp": "^3.7.1",
+    "gatsby-plugin-sharp": "^3.15.0",
     "gatsby-source-filesystem": "^3.7.1",
     "gatsby-transformer-sharp": "^3.7.1",
     "react": "^17.0.1",
