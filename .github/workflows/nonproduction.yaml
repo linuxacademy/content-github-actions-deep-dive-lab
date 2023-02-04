@@ -3,13 +3,13 @@ name: Deploy feature branches to nonproduction
 on:
   push:
     branches:
-      - feature*
+      - solution*
 
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      BUCKET_NAME: <Nonproduction bucket name here>
+      BUCKET_NAME: global-terraform.com
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -18,7 +18,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+          aws-region: ${{ secrets.AWS_REGION }}
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
