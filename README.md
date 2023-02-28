@@ -4,7 +4,7 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby minimal starter
+  Gatsby minimal   starter
 </h1>
 
 ## 🚀 Quick start
@@ -13,6 +13,8 @@
 
     Use the Gatsby CLI to create a new site, specifying the minimal starter.
 
+	
+	
     ```shell
     # create a new Gatsby site using the minimal starter
     npm init gatsby
