@@ -1,12 +1,11 @@
-name: Deploy site to production bucket
+name: Deploy feature branches to nonproduction bucket
 
 on:
   push:
     branches:
-      - main
+      - feature*
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     env:
