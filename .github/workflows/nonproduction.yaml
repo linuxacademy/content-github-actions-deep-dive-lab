@@ -4,12 +4,11 @@ on:
   push:
     branches:
       - feature*
-
+env:
+  BUCKET_NAME: cfst-3457-776d31c9d19f2d65bfa4612c3-nonprodbucket-2vckw1p9dzc9
 jobs: 
   build:
     runs-on: ubuntu-latest
-    env:
-      BUCKET_NAME: cfst-3457-776d31c9d19f2d65bfa4612c3-nonprodbucket-2vckw1p9dzc9
     steps:
       - name: checkout code
         uses: actions/checkout@v3
