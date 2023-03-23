@@ -3,7 +3,7 @@ name: Deploy feature Branch to Non_prod bucket
 on:
  push:
    branches:
-    - feature 
+    - feature*
 
 jobs:
  buiid: 
