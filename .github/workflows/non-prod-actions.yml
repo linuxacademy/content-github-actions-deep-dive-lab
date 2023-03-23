@@ -1,0 +1,31 @@
+name: Deploy feature Branch to Non_prod bucket
+
+on:
+ push:
+   branches:
+    - feature 
+
+jobs:
+ buiid: 
+  runs-on: ubuntu-latest
+  env:
+   BUCKET_NAME: my-dev-bucket-234357
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Configure AWS CLI
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-region: us-east-1
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    - name: setup node js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+    - name: build Site
+      run: |
+        npm ci
+        npm run build
+    - name: deploy files to bucket
+      run: aws s3 cp public s3://${{ env.BUCKET_NAME }}/ --recursive --acl public-read
