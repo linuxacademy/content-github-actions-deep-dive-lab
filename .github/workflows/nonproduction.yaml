@@ -1,0 +1,32 @@
+name: Deploy feature branches to nonproduction bucket
+
+on:
+  push:
+    branches:
+      - feature*
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    env:
+      BUCKET_NAME: acg-staticsitelab-nonprodbucket
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      - name: configure aws cli
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+      - name: set up node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: build site
+        run: |
+          npm ci
+          npm run build
+      - name: deploy files to bucket
+        run: aws s3 cp public s3://${{ env.BUCKET_NAME }} --recursive --acl public-read
