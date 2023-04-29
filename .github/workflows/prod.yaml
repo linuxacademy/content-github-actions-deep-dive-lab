@@ -1,14 +1,15 @@
 name: Deploy site to production bucket
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
 
-  build:
+  PROD:
     runs-on: ubuntu-latest
+    environment: 
+      name: PROD
+      url: http://acg-staticsitelab-prodbucket.s3-website.eu-central-1.amazonaws.com 
     env:
       BUCKET_NAME: acg-staticsitelab-prodbucket
     steps:
