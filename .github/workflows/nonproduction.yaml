@@ -12,7 +12,7 @@ jobs:
     env:
       BUCKET_NAME: cfst-3457-92519cba1440c1df2fd50a170-nonprodbucket-g36uc490usd8
     steps:
-      - name: Check out code
+      - name: Check out codes
         uses: actions/checkout@v2
       - name: configure aws cli
         uses: aws-actions/configure-aws-credentials@v1
