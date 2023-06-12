@@ -8,7 +8,7 @@ on:
 jobs:
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
     env:
       BUCKET_NAME: cfst-3457-31fbfe56530065d4fb917f0c03eb-prodbucket-cxlvfpa7nv8e
     steps:
