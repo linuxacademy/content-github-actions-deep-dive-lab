@@ -28,6 +28,6 @@ jobs:
               run: |
                 npm ci
                 npm run build
-            - name: deploy files to bucket
+            - name: deploy files to buckets
               run: aws s3 cp public s3://${{ env.BUCKET_NAME }} --recursive --acl public-read
 
