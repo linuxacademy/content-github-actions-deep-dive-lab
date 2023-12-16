@@ -1,4 +1,4 @@
-name: Depoy feature branches to nonproduction bucket
+name: Deploy feature branches to nonproduction bucket
 
 on:
   push:
@@ -6,7 +6,6 @@ on:
       - feature*
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     env:
