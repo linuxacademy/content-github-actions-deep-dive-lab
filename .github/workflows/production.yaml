@@ -1,4 +1,4 @@
-name: Deploy feature branches to nonproduction bucket
+name: Deploy feature branches to production bucket
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
     env:
       BUCKET_NAME: cfst-3457-876dd519e00a01248afc8b8eb453b-prodbucket-7c1wkruxbfre
     steps:
-      - name: Check out code
+      - name: Checkout code
         uses: actions/checkout@v2
       - name: configure aws cli
         uses: aws-actions/configure-aws-credentials@v1
