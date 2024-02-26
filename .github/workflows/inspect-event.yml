@@ -1,0 +1,13 @@
+name: Test event object contents
+
+on:
+  pull_request:
+    types: [ closed ]
+
+jobs:
+  detail:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output event object
+        run: |
+          echo ${{ toJSON(github.event) }}
